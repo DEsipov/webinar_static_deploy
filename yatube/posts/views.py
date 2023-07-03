@@ -17,7 +17,13 @@ def get_paginator(request, post):
     return paginator.get_page(page_number)
 
 
-@cache_page(20, key_prefix='index_page')
+def home(request):
+    context = {
+        'name': 'Джон Доу',
+    }
+    return render(request, 'posts/home.html', context)
+
+
 def index(request):
     post_list = Post.objects.all()
     page_obj = get_paginator(request, post_list)
@@ -26,6 +32,7 @@ def index(request):
     }
     return render(request, 'posts/index.html', context)
 
+
 @login_required
 def post_create(request):
     form = PostForm(request.POST or None, files=request.FILES or None)
@@ -33,30 +40,9 @@ def post_create(request):
         post = form.save(commit=False)
         post.author = request.user
         post.save()
-        return redirect('posts:profile', post.author)
+        return redirect('posts:index')
     context = {
         'form': form,
         'is_edit': False
-    }
-    return render(request, 'posts/create_post.html', context)
-
-
-@login_required
-def post_edit(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    if request.user != post.author:
-        return redirect('posts:post_detail', post_id)
-    form = PostForm(
-        request.POST or None,
-        files=request.FILES or None,
-        instance=post,
-    )
-    if form.is_valid():
-        form.save()
-        return redirect('posts:post_detail', post.id)
-    context = {
-        'form': form,
-        'post': post,
-        'is_edit': True,
     }
     return render(request, 'posts/create_post.html', context)
