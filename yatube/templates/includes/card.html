@@ -9,7 +9,6 @@
         {% else %}
           {{ post.author }}
         {% endif %}
-        <a href="{% url 'posts:profile' post.author %}">все посты пользователя</a>
       </li>
     {% endif %}
     <li class="list-group-item list-group-item-light">
@@ -22,10 +21,6 @@
   {% endthumbnail %}
   <div class="card-body">
     <p class="card-text">{{ post.text|linebreaksbr }}</p>
-    <a href="{% url 'posts:post_detail' post.id %}" class="btn btn-primary">Подробная информация</a>
-    {% if show_link and post.group %}
-      <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
-    {% endif %}
   </div>
 </div>
 </article>

@@ -9,14 +9,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(pr6$=k)5w28rdp*@q_u!@lw6jpx_x$a@pcpgmv#th_aiqo#pb'
 
 # Настройки для deploy
-ENABLE_PROD = True
+ENABLE_PROD = False
 
-DEBUG = False
+DEBUG = True
 
 if ENABLE_PROD:
     DEBUG = False
 
 ALLOWED_HOSTS = [
+    # Все хосты разрешены, это *
     '*',
     'localhost',
     '127.0.0.1',
@@ -24,14 +25,8 @@ ALLOWED_HOSTS = [
     'testserver',
 ]
 
-CSRF_FAILURE_VIEW = 'core.views.csrf_failure'
-
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'sent_emails')
-
-LOGIN_URL = 'users:login'
-LOGIN_REDIRECT_URL = 'posts:index'
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,9 +38,6 @@ INSTALLED_APPS = [
 
     'sorl.thumbnail',
     'posts.apps.PostsConfig',
-    'users.apps.UsersConfig',
-    'core.apps.CoreConfig',
-    'about.apps.AboutConfig',
 ]
 
 MIDDLEWARE = [
