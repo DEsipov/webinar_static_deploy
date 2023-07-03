@@ -11,7 +11,7 @@ SECRET_KEY = '(pr6$=k)5w28rdp*@q_u!@lw6jpx_x$a@pcpgmv#th_aiqo#pb'
 # Настройки для deploy
 ENABLE_PROD = False
 
-DEBUG = True
+DEBUG = False
 
 if ENABLE_PROD:
     DEBUG = False
@@ -125,7 +125,7 @@ DATE_FORMAT = 'd E Y'
 
 
 # Указываем URL который будет формироваться.
-STATIC_URL = '/our_static_url/'
+STATIC_URL = '/any_static_url/'
 
 # Место, откуда брать статику, иначе будет рыскать по каждому приложению,
 # искать внутри папку static
@@ -134,7 +134,7 @@ STATICFILES_DIRS = [
 ]
 
 # Место, куда collectstatic будет собирать всю статику.
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
 
 
 MEDIA_URL = '/media/'

@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{#Загружаем тэг#}
 {% load static %}
 {% block title %}Страничка со статикой{% endblock %}
 
 {% block content %}
   <h1>Если все ок, то здесь будет картинка.</h1>
+{#Указываем путь к картинке#}
   <img src="{% static 'img/doctor.jpg' %}"
              width="700"
              height="500"

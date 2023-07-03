@@ -152,3 +152,5 @@ dmypy.json
 #yatube/posts/static/
 #yatube/media/
 
+/yatube/collect_static/
+/yatube/media/
