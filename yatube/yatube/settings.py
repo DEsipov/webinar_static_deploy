@@ -124,12 +124,12 @@ DATE_FORMAT = 'd E Y'
 
 
 # Указываем URL который будет формироваться.
-STATIC_URL = '/any_static_url/'
+STATIC_URL = '/django_static/'
 
 # Место, откуда брать статику, иначе будет рыскать по каждому приложению,
 # искать внутри папку static
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_backup')
+    os.path.join(BASE_DIR, 'django_static')
 ]
 
 # Место, куда collectstatic будет собирать всю статику.
