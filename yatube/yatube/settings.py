@@ -133,7 +133,7 @@ STATICFILES_DIRS = [
 ]
 
 # Место, куда collectstatic будет собирать всю статику.
-STATIC_ROOT = os.path.join(BASE_DIR, 'collect_static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'django_static')
 
 
 MEDIA_URL = '/media/'
