@@ -4,17 +4,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(pr6$=k)5w28rdp*@q_u!@lw6jpx_x$a@pcpgmv#th_aiqo#pb'
 
 # Настройки для deploy
-ENABLE_PROD = True
+ENABLE_PROD = False
 
-DEBUG = False
+DEBUG = True
 
-if ENABLE_PROD:
-    DEBUG = False
+# if ENABLE_PROD:
+#     DEBUG = False
 
 ALLOWED_HOSTS = [
     # Все хосты разрешены, это *
